@@ -26,7 +26,7 @@ def create_table():
     conn.commit()
     print("Vote Saved Successfully")
     conn.close()
-    
+create_table()    
 def save_vote(headboy, headgirl, sports, sportsvice, green, yellow, blue, red):
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
@@ -95,5 +95,4 @@ def results():
     data = get_results()
     return render_template("results.html", results=data)
 if __name__ == "__main__":
-    create_table()
     app.run(host="0.0.0.0", port=5000, debug=True)
